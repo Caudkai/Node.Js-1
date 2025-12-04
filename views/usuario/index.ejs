@@ -1,0 +1,58 @@
+
+
+<%- include('../partials/header.ejs') %>
+
+<%- include('../partials/navbar.ejs') %>
+
+<br/>
+<div class="container">
+    <h3> Consulta de Usuarios</h3>
+    <table class="table table-striped">
+    <thead>
+        <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Nome do Perfil</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Email</th>
+        <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (usuarios.length === 0) { %>
+        
+            <tr>
+
+                <td colspan="6" class="text-center">Nenhum usuario cadastrado</td>
+        
+            </tr>
+
+        <% } else { %>
+            <% usuarios.forEach(usuario => { %>
+
+
+                <tr>
+                    <th scope="row"><%= usuario.id %></th>
+                    <td><%= usuario.nome %></td>
+                    <td><%= usuario.nome_user %></td>
+                    <td><%= usuario.cpf %></td>
+                    <td><%= usuario.email %></td>
+
+                    <td>
+
+                        <a href="/usuarios/edit/<%= usuario.id %>" class="btn btn-sm btn-primary">Editar</a>
+                        <a href="/usuarios/delete/<%= usuario.id %>" class="btn btn-sm btn-danger"
+                            onclick="return confirm('Tem certeza que deseja excluir esse cadastro?')">Excluir</a>
+                    
+                    </td>
+                </tr>
+
+            <% }); %>
+        <% } %>
+        
+    </tbody>
+    </table>
+
+</div>
+
+<%- include('../partials/footer.ejs') %>

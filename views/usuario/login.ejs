@@ -1,0 +1,43 @@
+<%- include('../partials/header.ejs') %>
+
+
+  <div class="container-fluid vh-100">
+    <div class="row h-100">
+      <!-- Coluna esquerda com imagem de fundo, ocupa 40% -->
+      <div class="col-12 col-md-5 d-none d-md-block" 
+           style="background-image: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=800&q=80'); 
+                  background-size: cover; 
+                  background-position: center;">
+      </div>
+
+      <!-- Coluna direita com formulário, ocupa 60%, centralizado -->
+      <div class="col-12 col-md-7 d-flex justify-content-center align-items-center">
+        <div class="bg-white rounded shadow-lg p-5" style="width: 450px; position: relative;">
+          
+          <!-- Imagem do usuário, redonda e centralizada -->
+          <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" 
+               alt="Usuário" 
+               class="rounded-circle border border-primary mx-auto d-block mb-4" 
+               style="width: 100px; height: 100px; object-fit: cover; margin-top: -80px;" />
+          
+          <h2 class="text-center mb-4 fw-bold text-secondary">Entrar na sua conta</h2>
+          
+          <form method="post" action="/login">
+            <div class="mb-3">
+              <label for="email" class="form-label text-start d-block">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="seuemail@exemplo.com" required autocomplete="email" name="email"/>
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label text-start d-block">Senha</label>
+              <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required autocomplete="current-password" name="senha"/>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 fw-semibold">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <%- include('../partials/footer.ejs') %>
